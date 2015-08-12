@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>快帮小明~</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width"/>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<div class="top">
+		你好我是标头
+	</div>
+	<div class="content">
+		<div class="main question animated bounceInDown">
+			<div class="title">
+				NO.1<small>先来点简单的~</small>
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			<fieldset tabindex="0" class='radioGroup'>
+				<legend>你的答案是:</legend>
+				<input id='g1o1' class="true" name="group1" value="20" type="radio">
+				<label for='g1o1'>A</label>
+				<input id='g1o2' name="group1" value="option2" type="radio">
+				<label for='g1o2'>B</label>
+			</fieldset>
+
+			<div class="button-next button animated infinite pulse" onclick="next(this)">下一题</div>
+			</div>
+
+		</div>
+		<div class="main question hidden animated bounceInUp">
+			<div class="title">
+				NO.2
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			<fieldset tabindex="1" class='radioGroup'>
+				<legend>你的答案是:</legend>
+				<input id='g1o3'  name="group2" value="30" type="radio">
+				<label for='g1o3'>A</label>
+				<input id='g1o4' class="true"name="group2" value="option2" type="radio">
+				<label for='g1o4'>B</label>
+			</fieldset>
+			
+			<div class="button-last button animated infinite pulse" onclick="last(this)">上一题</div>
+			<div class="button-next button animated infinite pulse" onclick="next(this)">下一题</div>
+		</div>
+		</div>
+		<div class="main question hidden animated jello">
+			<div class="title">
+				NO.3
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			<fieldset tabindex="2" class='radioGroup'>
+				<legend>你的答案是:</legend>
+				<input id='g1o5' class="true" name="group3" value="30" type="radio">
+				<label for='g1o5'>A</label>
+				<input id='g1o6' name="group3" value="option2" type="radio">
+				<label for='g1o6'>B</label>
+			</fieldset>
+			
+			<div class="button-last button animated infinite pulse" onclick="last(this)">上一题</div>
+			<div class="button-next button animated infinite pulse" onclick="next(this)">下一题</div>
+			</div>
+		</div>
+		<div class="main question hidden animated zoomInUp">
+			<div class="title">
+				NO.4
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			<fieldset tabindex="3" class='radioGroup'>
+				<legend>你的答案是:</legend>
+				<input id='g1o7' name="group4" value="30" type="radio">
+				<label for='g1o7'>A</label>
+				<input id='g1o8' class="true" name="group4" value="option2" type="radio">
+				<label for='g1o8'>B</label>
+			</fieldset>
+			
+			<div class="button-last button animated infinite pulse" onclick="last(this)">上一题</div>
+			<div class="button-next button animated infinite pulse" onclick="next(this)">下一题</div>
+			</div>
+		</div>
+		<div class="main question hidden animated swing">
+			<div class="title">
+				NO.5
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			<fieldset tabindex="4" class='radioGroup'>
+				<legend>你的答案是:</legend>
+				<input id='g1o9' class="true" name="group5" value="30" type="radio">
+				<label for='g1o9'>A</label>
+				<input id='g1o10' name="group5" value="option2" type="radio">
+				<label for='g1o10'>B</label>
+			</fieldset>
+			
+			<div class="button-last button animated infinite pulse" onclick="last(this)">上一题</div>
+			<div class="button-next button animated infinite pulse" onclick="check();next(this)">提　交</div>
+			</div>
+		</div>
+		<div class="sum" style="display:none">
+			<div class='title' >
+				总结
+			</div>
+			<div class="container">
+			这里是问题相关
+			<br><br><br><br><br>
+			
+			你的得分是：<span id='score'></span>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		Copyright © 2015.正蒙同创 JoinMind 
+		<br>All rights reserved.
+	</div>
+	
+
+
+
+	<script>
+		var sum=0;
+		function next(bt){
+			var question=document.getElementsByClassName("question");
+			var h = bt.parentNode.parentNode;
+			var sum=document.getElementsByClassName("sum");
+			for(var n=0;n<question.length;n++){
+				if(question[n]===h){
+					question[n].style.cssText="display:none";
+					if(n!=question.length-1){
+						question[n+1].style.cssText="display:block";
+					}
+					else{
+						sum[0].style.cssText='display:block';
+					}
+					
+				}
+			}
+		}
+
+		function last(bt){
+			var question=document.getElementsByClassName("question");
+			var h = bt.parentNode.parentNode;
+			var sum=document.getElementsByClassName("sum");
+			for(var n=0;n<question.length;n++){
+				if(question[n]===h){
+					question[n].style.cssText="display:none";
+					question[n-1].style.cssText="display:block";				
+				}
+			}
+		}
+		function check(){
+			var choices=document.getElementsByClassName("true");
+			for(var n = 0;n<choices.length;n++){
+				if(choices[n].checked){
+					sum=sum+20;
+				}
+			}
+			alert(sum);
+			var scores=document.getElementById("score");
+			scores.innerText=sum;
+		}
+	</script>
+</body>
+</html>
