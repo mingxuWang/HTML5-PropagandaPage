@@ -9,11 +9,15 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+	<div id="index">
+		<img id="index-img" class="animated infinite tada" src="xiaoming.png">
+		<div class="button-begin button animated infinite pulse" onclick="begin()">快来帮忙</div>
+	</div>
 	<div class="top">
 		你好我是标头
 	</div>
 	<div class="content">
-		<div class="main question animated bounceInDown">
+		<div class="main question animated bounceInDown hidden">
 			<div class="title">
 				NO.1<small>先来点简单的~</small>
 			</div>
@@ -28,7 +32,7 @@
 				<input id='g1o2' name="group1" value="option2" type="radio">
 				<label for='g1o2'>B</label>
 			</fieldset>
-
+			<div class="button-last button animated infinite pulse" onclick="return_index()">回首页</div>
 			<div class="button-next button animated infinite pulse" onclick="next(this)">下一题</div>
 			</div>
 
@@ -174,6 +178,20 @@
 			alert(sum);
 			var scores=document.getElementById("score");
 			scores.innerText=sum;
+		}
+
+		function begin(){
+			var h=document.getElementById("index");
+			h.style.cssText="display:none";
+			var n=document.getElementsByClassName("question");
+			n[0].style.cssText="display:block";
+		}
+
+		function return_index(){
+			var h=document.getElementById("index");
+			h.style.cssText="display:block";
+			var n=document.getElementsByClassName("question");
+			n[0].style.cssText="display:none";
 		}
 	</script>
 </body>
